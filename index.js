@@ -1,50 +1,23 @@
-//// connect to mongodb database
-//
-//const {MongoClient} = require("mongodb");
-//
-//async function findSomeData(client) {
-//    const cursor = await client.db("bookdb").collection("bookcollection").find({book_id:33});
-//
-//    const results = await cursor.toArray();
-//    console.log(results);
-//
-//    const js = JSON.stringify(results);
-//    console.log(js);
-//}
-//
-//
-////-------------------------- MAIN --------------------------//
-//async function main() {
-//    
-//    const uri = "mongodb+srv://jackson:jackson123@03162026.ils9tzf.mongodb.net/?appName=03162026";
-//
-//    const client = new MongoClient(uri);
-//
-//    try {
-//        await client.connect();
-//        console.log("MongoDB connection successful")
-//
-//        // Get the list of databases
-//        await findSomeData(client);
-//
-//    } catch (e) {
-//        console.log(e);
-//    } finally {
-//        await client.close();
-//        console.log("Connection closed");
-//    }
-//}
-//
-//main();
-//
-
-// Server URL: (fill in after deploying to Render)
+// Server URL: https://assignment2-zpof.onrender.com
 
 const http = require("http");
 const fs   = require("fs");
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
+
+const mimeTypes = {
+    ".html": "text/html",
+    ".css":  "text/css",
+    ".js":   "text/javascript",
+    ".json": "application/json",
+    ".png":  "image/png",
+    ".jpg":  "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".gif":  "image/gif",
+    ".svg":  "image/svg+xml",
+    ".ico":  "image/x-icon"
+};
 
 const server = http.createServer((req, res) => {
 
@@ -60,10 +33,21 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.end(html);
 
-    // ── 404 for anything else ──
+    // ── Static files (images, etc.) ──
     } else {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("404 - Page Not Found");
+        const filePath = path.join(__dirname, req.url);
+        const ext = path.extname(filePath);
+        const contentType = mimeTypes[ext] || "application/octet-stream";
+
+        fs.readFile(filePath, (err, data) => {
+            if (err) {
+                res.writeHead(404, { "Content-Type": "text/plain" });
+                res.end("404 - File Not Found");
+            } else {
+                res.writeHead(200, { "Content-Type": contentType });
+                res.end(data);
+            }
+        });
     }
 });
 
