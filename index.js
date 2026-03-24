@@ -3,8 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Fix for images not loading
 // Found online, unsure how it works exactly but it does work
