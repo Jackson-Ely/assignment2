@@ -293,11 +293,11 @@ menuBtn.addEventListener("click", function() {
 
 
 /* Fetch products */
-let dataURL = "https://raw.githubusercontent.com/Jackson-Ely/assignment1/refs/heads/main/data.json";
+let dataURL = "/api";
 
 /* Build a card */
 function createCard(item) {
-    var card = document.createElement("div");
+    let card = document.createElement("div");
     card.className = "card";
     card.innerHTML =
         "<h3>" + item.title + "</h3>" +
@@ -308,7 +308,7 @@ function createCard(item) {
 
 /* Make a card for each service */
 function displayServices(data) {
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         createCard(data[i]);
     }
 }
