@@ -70,4 +70,4 @@ const server = http.createServer((req, res) => {
     console.log(req.url);
 });
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server is running properly`));
