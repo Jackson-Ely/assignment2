@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SVSU Astronomy Club</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+
+<!-- Outer Grid Container -->
+<div class="container">
+
+    <!-- Menu -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="SVSU Astronomy Club Logo">
+        </div>
+        <button class="menu-toggle" id="menu-btn"><i class="fa fa-bars"></i></button>
+        <div class="menu" id="menu">
+            <a href="#contacts">Contacts</a>
+            <a href="#products">Services</a>
+            <a href="#follow">About</a>
+            <a href="#home">Home</a>
+        </div>
+    </div>
+
+    <!-- Home -->
+    <div class="home" id="home">
+        <h1>SVSU Astro Club</h1>
+        <p>SVSU Astro Club invites students of all experience levels
+             to explore the universe through hands-on observation, guided
+             learning, and real nights under the stars. Whether you’re taking
+              your first look at the Moon or capturing deep-sky images, 
+              we’re here to help you build skills, ask questions, and 
+              discover just how vast—and accessible—the night sky can be.
+            </p>
+    </div>
+
+    <!-- Follow -->
+    <div class="follow" id="follow">
+        <h1>Follow Us!</h1>
+        <p>
+            SVSU Astro Club showcases our members' astrophotography on the regular, 
+            follow our socials to see everyone's incredible shots!
+        </p>
+    </div>
+
+    <!-- Astrophotography Demo Pics -->
+<div class="box-row">
+    <div class="box">
+        <img src="jupiter20nov2024203-1900x1069.png" alt="Jupiter">
+    </div>
+
+    <div class="box">
+        <img src="moon20mosaic20nov2024-1900x1069.png" alt="Moon">
+    </div>
+
+    <div class="box">
+        <img src="saturn-3-400x400.png" alt="Saturn">
+    </div>
+</div>
+
+    <!-- Products (Events and Services) -->
+    <div class="products" id="products">
+        <h1>Events and Services</h1>
+        <div class="product-container" id="product-container"></div>
+    </div>
+
+    <!-- Contacts -->
+    <div class="contacts" id="contacts">
+        <h1>Contacts</h1>
+        <p>Email: svsuastro@notreal.com</p>
+        <p>Phone: (555) 555-5555</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>SVSU Astro Club</p>
+    </div>
+</div>
+
+
+<style>
+
+/* CSS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Grid */
+.container {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+}
+
+/* Flex */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #632306;
+    padding: 10px;
+}
+
+.navbar a {
+    color: #f2f2f2;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.navbar a:hover {
+    background-color: #f0932b;
+    color: black;
+}
+
+.menu {
+    display: flex;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Homepage */
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+    color: white;
+
+    /* horsehead nebula background */
+    background-image: url(img-4646-869x652.jpeg);
+    background-size: cover;
+    background-position: center;
+
+    /* so text is legible if the pic doesn't load */
+    background-color: #0c0400;
+}
+
+/* Follow section */
+.follow {
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: white;
+    background-color: #632306;
+}
+
+.follow img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* Astrophotographgy Demo Pics */
+/* Based off column_img html document on canvas */
+.box-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    flex-wrap: wrap;
+    color: white;
+    background-color: #160700;
+}
+
+.box {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+}
+
+/* Called products Events and Services instead on the web page */
+.products {
+    padding: 30px;
+    text-align: center;
+    color:white;
+    background-color: #0c0400;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ── Card styles (were missing from Assignment 1) ── */
+.card {
+    background-color: #1e0a00;
+    border: 1px solid #632306;
+    border-radius: 10px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+ 
+.card h3 {
+    margin-bottom: 10px;
+    color: #f0932b;
+    font-size: 1.1rem;
+}
+ 
+.card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+ 
+.card strong {
+    color: #f0932b;
+    font-size: 1rem;
+}
+
+.contacts {
+    text-align: center;
+    padding: 30px;
+    color: white;
+    background-color:#160700;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #8f360c;
+    color: white;
+}
+
+/* Responsive menu based off responsive menu file in canvas */
+@media (max-width: 600px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #632306;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        align-items: flex-start;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+<script>
+/* Mobile toggle hamburger menu */
+/* Also based off the responsive menu file in canvas */
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", function() {
+    menu.classList.toggle("show");
+});
+
+
+/* Fetch products */
+let dataURL = "https://raw.githubusercontent.com/Jackson-Ely/assignment1/refs/heads/main/data.json";
+
+/* Build a card */
+function createCard(item) {
+    var card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML =
+        "<h3>" + item.title + "</h3>" +
+        "<p>"  + item.description + "</p>" +
+        "<p><strong>" + item.price + "</strong></p>";
+    document.getElementById("product-container").appendChild(card);
+}
+
+/* Make a card for each service */
+function displayServices(data) {
+    for (var i = 0; i < data.length; i++) {
+        createCard(data[i]);
+    }
+}
+
+/* Grab from github */
+fetch(dataURL).then(function(response) { return response.json(); }).then(function(data) { displayServices(data);});
+</script>
+</body>
+</html>

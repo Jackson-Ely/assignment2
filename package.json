@@ -1,0 +1,13 @@
+{
+  "name": "svsu-astronomy-club",
+  "version": "0.0.1",
+  "description": "SVSU Astronomy Club website with Node.js HTTP server",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

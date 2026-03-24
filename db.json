@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Star Gazing Nights",
+        "description": "Monthly public observation events on campus where members set up telescopes and guide attendees through the night sky.",
+        "price": " "
+    },
+    {
+        "title": "Astrophotography Workshops",
+        "description": "Hands-on sessions teaching members how to photograph planets, nebulae, and star fields using club equipment.",
+        "price": " "
+    },
+    {
+        "title": "Telescope Training",
+        "description": "One-on-one or small group sessions teaching beginners how to set up, align, and operate a telescope.",
+        "price": " "
+    },
+    {
+        "title": "Guest Speaker Events",
+        "description": "Talks hosted by astronomy professors, NASA researchers, or local planetarium staff on topics like space exploration and cosmology.",
+        "price": " "
+    },
+    {
+        "title": "Dark Sky Road Trips",
+        "description": "Organized trips away from city light pollution to remote locations for deep-sky observation.",
+        "price": "$10 per trip"
+    },
+    {
+        "title": "Planetary Imaging Sessions",
+        "description": "Dedicated club nights focused on imaging planets like Jupiter, Saturn, and Mars during favorable viewing windows.",
+        "price": " "
+    },
+    {
+        "title": "Intro to Astronomy Seminar",
+        "description": "A beginner-friendly crash course covering constellations, the solar system, and how to navigate the night sky.",
+        "price": " "
+    },
+    {
+        "title": "Astrophotography Print Sales",
+        "description": "Professionally printed photos of deep-sky objects and planets taken by club members, available to support club funding.",
+        "price": "Starting at $15"
+    }
+
+]
+
