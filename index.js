@@ -22,7 +22,7 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
 
-    // ── Route: / — serve the organization website ──
+    // Website
     if (req.url === '/') {
 
         fs.readFile(path.join(__dirname, 'index.html'),
@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
             }
         );
 
-    // ── Route: /api — serve db.json as JSON ──
+    // db.json
     } else if (req.url === '/api') {
 
         fs.readFile(path.join(__dirname, 'db.json'),
