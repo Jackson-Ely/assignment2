@@ -4,8 +4,8 @@ const http = require("http");
 const fs   = require("fs");
 const path = require("path");
 
-const PORT = process.env.PORT || 3000;
-
+// Fix for images not displaying, found online
+// Not sure exactly how it works but it definitely works
 const mimeTypes = {
     ".html": "text/html",
     ".css":  "text/css",
@@ -21,20 +21,28 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
 
-    // ── Route: /api — serve db.json as JSON ──
+    // db.json
     if (req.url === "/api") {
-        const data = fs.readFileSync(path.join(__dirname, "db.json"), "utf8");
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(data);
+        fs.readFile(path.join(__dirname, "db.json"),
+                   (err, content) => {
+                       if(err) throw err;
+                        res.writeHead(200, { "Content-Type": "application/json"});
+                        res.end(data);
+                   }
+                );
 
-    // ── Route: / — serve the organization website ──
-    } else if (req.url === "/" || req.url === "/index.html") {
-        const html = fs.readFileSync(path.join(__dirname, "index.html"), "utf8");
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end(html);
-
-    // ── Static files (images, etc.) ──
+    // Website
+    } else if (req.url === "/" || req.url === "/index.html"){
+        fs.readFile(path.join(__dirname, "index.html"),
+                    (err, content) =>{
+                        if(err) throw err;
+                        res.writeHead(200, { "Content-Type": "text/html" });
+                        res.end(html);
+                    }
+                    
     } else {
+        // Fix for images not displaying, found online
+        // Not sure exactly how it works but it definitely works
         const filePath = path.join(__dirname, req.url);
         const ext = path.extname(filePath);
         const contentType = mimeTypes[ext] || "application/octet-stream";
@@ -51,6 +59,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+server.listen(5959, () => {
+    console.log(`Server is running properly);
 });
